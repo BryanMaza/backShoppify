@@ -6,13 +6,15 @@ const ProductSchema = new Schema({
   name: String,
   note: String,
   image: String,
-  category: String
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category"
+  }
 });
 
 ProductSchema.methods.toJSON = function () {
   let obj = this.toObject();
   delete obj.__v;
-  delete obj._id;
   return obj;
 };
 

@@ -1,13 +1,12 @@
 "use strict";
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Product = require("./product");
 
 const ListSchema = new Schema({
   name: String,
-  items: [{ type: Product.schema, ref: "Product" }],
+  items: [{ type: Schema.ObjectId, ref: "Product", amount: Number }],
   date: { type: Date, default: Date.now },
-  state: String
+  completed: Boolean
 });
 
-module.exports = mongoose.model("Category", ListSchema);
+module.exports = mongoose.model("List", ListSchema);

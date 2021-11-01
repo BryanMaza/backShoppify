@@ -35,7 +35,7 @@ let controller = {
           Category.findOne({ name: params.category }, (err, category) => {
             if (err) {
               res.status(500).send({
-                message: "Error en la petición"
+                message: "Error en la petición "
               });
             } else {
               if (!category) {
@@ -48,11 +48,11 @@ let controller = {
                 product.name = params.name;
                 product.note = params.note;
                 product.image = params.image;
-                product.name = params.category;
+                product.category = category._id;
                 product.save((err, productStored) => {
                   if (err) {
                     res.status(500).send({
-                      message: "Error en la petición"
+                      message: "Error en la petición prod"
                     });
                   } else {
                     if (!productStored) {

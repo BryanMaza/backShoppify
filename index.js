@@ -1,9 +1,8 @@
 "use strict";
+//Libreria para ocultar la url de la db
 require("dotenv").config();
 const mongoose = require("mongoose");
 const app = require("./app");
-
-//Libreria para ocultar la url de la db
 
 //llamada de las variables del archivo .env
 const URL = process.env.MONGODB_URI;
